@@ -1,0 +1,32 @@
+<nav id="navbar"
+    class="flex justify-between font-default font-light text-primary top-0 px-8 lg:px-25 py-8 z-10 fixed w-full bg-white transition-all duration-400 ease-in-out">
+    <h1 class="text-xl font-normal">AturUang</h1>
+    <ul class="items-center gap-10 hidden md:flex">
+        <li><a href="/" class="nav-link active">Beranda</a></li>
+        <li><a href="/smartBudgeting/" class="nav-link">Kalkulator</a></li>
+        <li><a href="/" class="nav-link">Artikel</a></li>
+        <li><a href="/" class="nav-link">Tentang</a></li>
+        <li><a href="/login" class="nav-link">Login</a></li>
+    </ul>
+    <button class="md:hidden hover:cursor-pointer">
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+    </button>
+</nav>
+
+<script>
+    let lastScroll = 0;
+    $(window).on('scroll', function () {
+        const navbar = $("#navbar");
+        const currentScroll = $(window).scrollTop();
+        if (currentScroll > lastScroll) {
+            // scroll ke bawah 🐧
+            navbar.removeClass("top-0").addClass("-top-25");
+        } else {
+            // scroll ke atas 🐧
+            navbar.removeClass("-top-25").addClass("top-0");
+        }
+        lastScroll = currentScroll;
+    })
+</script>

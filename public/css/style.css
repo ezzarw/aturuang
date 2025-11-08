@@ -179,6 +179,9 @@
   }
 }
 @layer utilities {
+  .fixed {
+    position: fixed;
+  }
   .sticky {
     position: sticky;
   }
@@ -188,11 +191,11 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .z-1 {
+    z-index: 1;
+  }
   .z-10 {
     z-index: 10;
-  }
-  .mx-8 {
-    margin-inline: calc(var(--spacing) * 8);
   }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
@@ -202,12 +205,6 @@
   }
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
-  }
-  .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
-  }
-  .mb-3 {
-    margin-bottom: calc(var(--spacing) * 3);
   }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
@@ -226,6 +223,9 @@
   }
   .table {
     display: table;
+  }
+  .h-dvh {
+    height: 100dvh;
   }
   .w-\[60px\] {
     width: 60px;
@@ -260,6 +260,9 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -281,6 +284,15 @@
   .gap-16 {
     gap: calc(var(--spacing) * 16);
   }
+  .gap-\[10px\] {
+    gap: 10px;
+  }
+  .gap-\[22px\] {
+    gap: 22px;
+  }
+  .gap-\[41px\] {
+    gap: 41px;
+  }
   .gap-\[74px\] {
     gap: 74px;
   }
@@ -293,6 +305,9 @@
   .rounded-\[10px\] {
     border-radius: 10px;
   }
+  .rounded-\[100px\] {
+    border-radius: 100px;
+  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -300,6 +315,10 @@
     border-radius: var(--radius-xl);
   }
   .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-\[1px\] {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
@@ -312,26 +331,35 @@
   .bg-secondary {
     background-color: var(--color-secondary);
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
   }
-  .px-\[25px\] {
-    padding-inline: 25px;
+  .px-20 {
+    padding-inline: calc(var(--spacing) * 20);
   }
-  .px-\[35px\] {
-    padding-inline: 35px;
+  .px-40 {
+    padding-inline: calc(var(--spacing) * 40);
   }
-  .px-\[45px\] {
-    padding-inline: 45px;
+  .px-70 {
+    padding-inline: calc(var(--spacing) * 70);
   }
   .px-\[50px\] {
     padding-inline: 50px;
   }
+  .px-\[60px\] {
+    padding-inline: 60px;
+  }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
   }
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
@@ -344,6 +372,9 @@
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
+  }
+  .py-\[20px\] {
+    padding-block: 20px;
   }
   .py-\[35px\] {
     padding-block: 35px;
@@ -378,11 +409,17 @@
   .text-\[18px\] {
     font-size: 18px;
   }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
   .text-\[24px\] {
     font-size: 24px;
   }
   .text-\[40px\] {
     font-size: 40px;
+  }
+  .text-\[55px\] {
+    font-size: 55px;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -399,6 +436,9 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .text-\[20\] {
+    color: 20;
   }
   .text-primary {
     color: var(--color-primary);
@@ -499,11 +539,6 @@
       margin-bottom: calc(var(--spacing) * 0);
     }
   }
-  .lg\:mb-5 {
-    @media (width >= 64rem) {
-      margin-bottom: calc(var(--spacing) * 5);
-    }
-  }
   .lg\:mb-6 {
     @media (width >= 64rem) {
       margin-bottom: calc(var(--spacing) * 6);
@@ -527,11 +562,6 @@
   .lg\:w-\[20\%\] {
     @media (width >= 64rem) {
       width: 20%;
-    }
-  }
-  .lg\:w-\[40\%\] {
-    @media (width >= 64rem) {
-      width: 40%;
     }
   }
   .lg\:w-\[90px\] {
@@ -584,11 +614,6 @@
       justify-content: center;
     }
   }
-  .lg\:gap-6 {
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 6);
-    }
-  }
   .lg\:gap-30 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 30);
@@ -632,11 +657,6 @@
   .lg\:text-\[55px\] {
     @media (width >= 64rem) {
       font-size: 55px;
-    }
-  }
-  .xl\:w-\[30\%\] {
-    @media (width >= 80rem) {
-      width: 30%;
     }
   }
   .xl\:w-\[40\%\] {

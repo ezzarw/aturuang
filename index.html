@@ -5,33 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AturUang</title>
-    <link rel="stylesheet" href="public/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <script src="/public/js/jquery-3.7.1.js"></script>
+    <script>
+        $(function () {
+            $('#navBar').load('/components/navbar.html', function () {
+                const content = $('#navBar').html();
+                $("#navBar").replaceWith(content);
+            });
+            $('#footer').load('/components/footer.html', function () {
+                const content = $('#footer').html();
+                $("footer").replaceWith(content);
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body class="font-default font-light text-primary bg-secondary">
     <!-- navbar 🐧-->
-    <nav id="navbar"
-        class="flex justify-between top-0 px-8 lg:px-25 py-8 z-10 sticky w-full bg-secondary transition-all duration-400 ease-in-out">
-        <h1 class="text-xl font-normal">AturUang</h1>
-        <ul class="items-center gap-10 hidden md:flex">
-            <li><a href="#" class="nav-link active">Beranda</a></li>
-            <li><a href="#" class="nav-link">Kalkulator</a></li>
-            <li><a href="#" class="nav-link">Artikel</a></li>
-            <li><a href="#" class="nav-link">Tentang</a></li>
-            <li><a href="#" class="nav-link">Login</a></li>
-        </ul>
-        <button class="md:hidden hover:cursor-pointer">
-            <span class="material-symbols-outlined">
-                menu
-            </span>
-        </button>
-    </nav>
+    <div id="navBar"></div>
     <!-- navbar end 🐧-->
 
     <!-- main section 🐧-->
@@ -39,12 +37,12 @@
         <!-- Hero section 🐧-->
         <section
             class="px-8 pt-8 pb-24 lg:flex lg:px-25 lg:pt-30 lg:pb-48 justify-between lg:items-center gap-2.5 self-stretch">
-            <img src="public/img/ilustration-main.jpg" alt="Illustration Main"
+            <img src="/public/img/ilustration-main.jpg" alt="Illustration Main"
                 class="mb-8 lg:w-[500px] lg:mb-0  rounded-xl">
             <div class="lg:order-first lg:max-w-[570px] lg:flex lg:flex-col lg:items-start">
                 <h2 class="text-4xl lg:text-[55px] font-semibold mb-4 lg:mb-6">Pasti Ada Peluang, di AturUang!</h2>
                 <p class="font-light text-[18px]">Sulit Manajemen Keuangan?<br>Temukan Solusimu di AturUang.</p>
-                <a href="#promosi"
+                <a href="/smartBudgeting/index.html"
                     class="bg-primary text-white px-10 py-4 flex items-center content-center border border-primary rounded-full w-fit mt-6 hover:bg-secondary hover:text-primary hover:border hover:border-primary transition-all duration-300 ease-in-out">
                     <p>Mulai Sekarang</p>
                 </a>
@@ -54,7 +52,7 @@
 
         <!-- Promosi Section 🐧-->
         <section class="bg-primary text-secondary lg:max-h-[20%] lg:flex lg:gap-[63px] items-center" id="promosi">
-            <img src="public/img/financial.jpg" class="lg:w-[20%] xl:w-[40%]" alt="">
+            <img src="/public/img/financial.jpg" class="lg:w-[20%] xl:w-[40%]" alt="">
             <div class="px-8 py-10 lg:max-w-[40%]">
                 <h1 class="text-4xl mb-4 font-normal">Atur Finansial Anda<br>dengan AturUang</h1>
                 <p>Menyediakan fitur yang dapat membantu generasi muda yang sedang menghadapi permasalahan keuangan dan
@@ -64,16 +62,16 @@
         <!-- Promosi Section end 🐧-->
 
         <!-- Keunggulan section 🐧-->
-        <section
-            class="keunggulan-container flex flex-col gap-16 justify-center items-center py-20 lg:py-20">
+        <section class="keunggulan-container flex flex-col gap-16 justify-center items-center py-20 lg:py-20">
             <h1 class="text-primary text-center font-default text-[40px] font-semibold">AturUang Untuk Generasi Muda
             </h1>
             <!-- card parent -->
-            <div class="card-parent flex flex-col justify-center lg:flex-row gap-16 box-border">
+            <div class="card-parent flex flex-col justify-center lg:flex-row gap-16 box-border ">
                 <!-- Card 1 🐧-->
                 <div
                     class="bg-primary text-white flex py-[35px] px-[50px] w-full flex-col content-center justify-center items-center  text-center rounded-[10px] lg:w-[380px] lg:h-[350px] lg:mx-0">
-                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M50 87.5L20.8333 71.6667V46.6667L4.16667 37.5L50 12.5L95.8333 37.5V70.8333H87.5V42.0833L79.1667 46.6667V71.6667L50 87.5ZM50 52.9167L78.5417 37.5L50 22.0833L21.4583 37.5L50 52.9167ZM50 78.0208L70.8333 66.7708V51.0417L50 62.5L29.1667 51.0417V66.7708L50 78.0208Z"
                             fill="#F3F4F6" />
@@ -84,7 +82,8 @@
                 <!-- Card 2 🐧 -->
                 <div
                     class="bg-primary text-white flex py-[35px] px-[50px] w-full flex-col content-center justify-center items-center  text-center rounded-[10px] lg:w-[380px] lg:h-[350px] lg:mx-0">
-                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M87.5 45.8458H86.7667L79.1708 23.625L13.975 45.8458L12.5 45.8333M10.4167 45.85H12.5L58.9417 8.75L70.6792 25.2083"
                             stroke="#F3F4F6" stroke-width="8" stroke-linecap="square" />
@@ -98,18 +97,21 @@
                             stroke="#F3F4F6" stroke-width="8" stroke-linecap="square" />
                     </svg>
                     <h1 class="text-[24px] mt-5 font-semibold">Smart Budgeting</h1>
-                    <h3 class="text-[16px] mt-3 font-light w-[260px]">Rencanakan pengeluaranmu dengan cerdas dan efisien.</h3>
+                    <h3 class="text-[16px] mt-3 font-light w-[260px]">Rencanakan pengeluaranmu dengan cerdas dan
+                        efisien.</h3>
                 </div>
                 <!-- Card 3 🐧 -->
                 <div
                     class="bg-primary text-white flex py-[35px] px-[50px] w-full flex-col content-center justify-center items-center  text-center rounded-[10px] lg:w-[380px] lg:h-[350px] lg:mx-0 box-border">
-                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-[60px] lg:w-[90px]" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M66.6667 49.0833L84.3334 18.5417L91.5417 22.7083L69.75 60.4167L42.625 44.7917L22.75 79.1667H91.6667V87.5H8.33337V12.5H16.6667V73.0833L39.5834 33.3333L66.6667 49.0833Z"
                             fill="#F3F4F6" />
                     </svg>
                     <h1 class="text-[24px] mt-5 font-semibold">Smart Analysis</h1>
-                    <h3 class="text-[16px] mt-3 font-light w-[260px]">Dapatkan rekomendasi serta diagram visual dari sistem kami
+                    <h3 class="text-[16px] mt-3 font-light w-[260px]">Dapatkan rekomendasi serta diagram visual dari
+                        sistem kami
                     </h3>
                 </div>
             </div>
@@ -118,44 +120,9 @@
     </main>
 
 
-    <footer class="flex flex-col gap-[74px] bg-primary text-secondary justify-center px-8 lg:px-25 py-16 lg:pt-20 lg:pb-8">
-        <div class="containerfooter flex justify-between flex-col lg:flex-row gap-10">
-            <!-- div kiri 🐧-->
-            <div class="flex flex-col gap-6 lg:max-w-[40%]">
-                <h1 class="text-[40px] font-bold">AturUang</h1>
-                <p class="text-lg">Website edukatif manajemen keuangan dan finansial untuk generasi emas
-                    Indonesia.</p>
-            </div>
-            <!-- div kiri end🐧-->
-
-            <!-- div kanan 🐧-->
-            <div class="flex lg:justify-center gap-15 lg:gap-30 lg:mr-20">
-                <div>
-                    <ul class="flex flex-col gap-4">
-                        <li class="font-bold">Related Links</li>
-                        <li class="font-light"><a href="#" class="nav-link">Kalkulator Keuangan</a></li>
-                        <li class="font-light"><a href="#" class="nav-link">Artikel Keuangan</a></li>
-                        <li class="font-light"><a href="#" class="nav-link">Tips Finansial</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="flex flex-col gap-4">
-                        <li class="font-bold">Lihat Juga</li>
-                        <li class="font-light"><a href="#" class="nav-link">Tentang Kami</a></li>
-                        <li class="font-light"><a href="#" class="nav-link">Kontak Kami</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- div kanan end🐧-->
-
-        </div>
-        <!-- copyright 🐧-->
-        <div class="copyright w-full text-center">
-            Copyright 2025. All Rights Reserved
-        </div>
-    </footer>
+   <div id="footer"></div>
     <!-- Main section end 🐧-->
-    <script src="public/js/script.js"></script>
+
 </body>
 
 </html>
