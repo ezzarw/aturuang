@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #1E3A8A;
-    --color-secondary: #F3F4F6;
-    --font-default: "Alexandria", "Arial", sans-serif;
+  --color-primary: #1E3A8A;
+  --color-secondary: #F3F4F6;
+  --font-default: "Alexandria", "Arial", sans-serif;
 }
 
 * {
@@ -15,7 +15,7 @@
 }
 
 .article-card {
-    @apply rounded-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden lg:max-w-100 lg:hover:-translate-y-2 lg:hover:shadow-lg;
+  @apply rounded-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden lg:max-w-100 lg:hover:-translate-y-2 lg:hover:shadow-lg;
 }
 
 .nav-link {
@@ -40,7 +40,7 @@ p {
 }
 
 .btn-primary {
-  @apply bg-primary text-white px-15 py-4 flex items-center content-center border border-primary rounded-full w-fit mt-6 hover:bg-secondary hover:text-primary hover:border hover:border-primary transition-all duration-300 cursor-pointer ease-in-out;
+  @apply bg-primary text-white px-15 py-4 flex items-center content-center border border-primary rounded-full w-fit mt-6 hover:bg-transparent hover:text-primary hover:border hover:border-primary transition-all duration-300 cursor-pointer ease-in-out;
 }
 
 .btn-primary-alternate {
@@ -48,5 +48,17 @@ p {
 }
 
 .mission ul li {
-    @apply leading-[180%];
+  @apply leading-[180%];
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

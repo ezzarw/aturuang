@@ -29,40 +29,42 @@
     </style>
 </head>
 
-<body class="font-default font-light text-primary bg-secondary min-h-[130dvh] w-full">
+<body class="font-default font-light text-primary bg-secondary w-full no-scrollbar">
     <!-- navbar 🐧 -->
     <div id="navBar"></div>
     <!-- navbar end 🐧 -->
 
     <!-- main section 🐧-->
     <main>
-        <section class="font-default w-full min-h-[110dvh] flex items-center justify-center gap-4">
-            <div x-data="{tab: 'perbandinganPengeluaran'}"
-                class="max-w-[67%] min-h-[70%] lg:w-[89%] lg:min-h-[50%] 2xl:min-w-0 text-[20px] items-center lg:items-stretch p-10 lg:p-17 gap-4 flex flex-col bg-white rounded-2xl mx-auto">
+        <section class="font-default w-full flex items-center justify-center gap-4 py-10 lg:py-30 bg-secondary">
+            <div x-data="{tab: 'pembagianKeuangan'}"
+                class="max-w-[67%] min-h-[70%] lg:w-[89%] lg:min-h-[50%] 2xl:min-w-0  items-center lg:items-stretch p-10 lg:p-17 gap-4 flex flex-col bg-white rounded-2xl mx-auto">
                 <div class="flex w-full h-full flex-col gap-4 items-center lg:items-start">
                     <h1
                         class="text-primary text-center lg:text-start text-4xl lg:text-[48px] font-default font-semibold">
                         Smart Budgeting</h1>
-                    <div class="flex space-x-4 w-full items-center lg:justify-start">
-                        <button @click="tab = 'pembagianKeuangan'" class="text-[20px] border-b-2"
-                            x-bind:class="{'font-semibold border-b-primary': tab == 'pembagianKeuangan', 'font-normal': tab !== 'pembagianKeuangan border-b-gray-700'}">
+                    <!-- tab -->
+                    <div class="flex space-x-4 w-full items-center lg:justify-start relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:opacity-20 before:w-full before:h-px">
+                        <button @click="tab = 'pembagianKeuangan'" class="hover:cursor-pointer"
+                            x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'pembagianKeuangan', 'font-normal': tab !== 'pembagianKeuangan'}">
                             Pembagian Keuangan
                         </button>
-                        <button @click="tab = 'perbandinganPengeluaran'" class="text-[20px] border-b-2"
-                            x-bind:class="{'font-semibold border-b-primary': tab == 'perbandinganPengeluaran', 'font-normal': tab !== 'perbandinganPengeluaran border-b-gray-700'}">
+                        <button @click="tab = 'perbandinganPengeluaran'" class="hover:cursor-pointer"
+                            x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'perbandinganPengeluaran', 'font-normal': tab !== 'perbandinganPengeluaran'}">
                             Perbandingan Pengeluaran
                         </button>
                     </div>
+                    <!-- tab end -->
                 </div>
                 <div class="mt-5">
+                    <!-- pembagian keuangan -->
                     <div class="flex flex-col lg:text-start" x-show="tab === 'pembagianKeuangan'">
-
                         <div class="flex flex-col w-full h-full items-center lg:items-start">
                             <h4 class="font-normal text-center lg:text-start">Masukkan total anggaran bulananmu dan
                                 lihat pembagian ideal 50 : 30 :
                                 20! (input berupa Rupiah)</h4>
                             <div class="relative font-normal">
-                                <h1 class="absolute left-[7.9%] top-[53%] -translate-y-[33%]">Rp</h1>
+                                <h1 class="absolute left-[7.9%] top-1/2 -translate-y-1/2">Rp</h1>
                                 <input type="number" min="1" step="any" id="inputPembagian"
                                     class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-5 w-[90%] md:w-[65%] lg:w-[60%]">
                             </div>
@@ -89,8 +91,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- perbandingan keuangan end -->
 
-
+                    <!-- perbandingan pengeluaran -->
                     <div class="flex flex-col lg:flex-row justify-between" x-show="tab === 'perbandinganPengeluaran'">
                         <!-- input -->
                         <div class="flex flex-col gap-5 w-full lg:w-[50%]"> 
@@ -143,7 +146,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- perbandingan pengeluaran end -->
 
                 </div>
             </div>
@@ -301,13 +304,6 @@
             $('#parentHasil').removeClass('hidden').addClass('block')
             $('#hasil').html(hasil.join('<br>'));
         })
-
-
-
-
-
-
-
     </script>
 </body>
 
