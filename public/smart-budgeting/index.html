@@ -23,8 +23,12 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <style>
-        #navbar {
-            background-color: transparent;
+        ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+            appearance: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -36,20 +40,20 @@
 
     <!-- main section 🐧-->
     <main>
-        <section class="font-default w-full flex items-center justify-center gap-4 py-10 lg:py-30 bg-secondary">
+        <section class="font-default w-full flex items-center justify-center gap-4 py-20 lg:py-30 bg-secondary">
             <div x-data="{tab: 'pembagianKeuangan'}"
-                class="max-w-[67%] min-h-[70%] lg:w-[89%] lg:min-h-[50%] 2xl:min-w-0  items-center lg:items-stretch p-10 lg:p-17 gap-4 flex flex-col bg-white rounded-2xl mx-auto">
+                class="w-[80%] min-h-[70%] lg:w-[60%] lg:min-h-[50%] 2xl:min-w-0 items-center lg:items-stretch p-8 lg:p-17 gap-4 flex flex-col bg-white rounded-2xl mx-auto">
                 <div class="flex w-full h-full flex-col gap-4 items-center lg:items-start">
                     <h1
-                        class="text-primary text-center lg:text-start text-4xl lg:text-[48px] font-default font-semibold">
+                        class="text-primary text-center mb-5 lg:text-start text-4xl lg:text-[2.5rem] font-default font-semibold">
                         Smart Budgeting</h1>
                     <!-- tab -->
                     <div class="flex space-x-4 w-full items-center lg:justify-start relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:opacity-20 before:w-full before:h-px">
-                        <button @click="tab = 'pembagianKeuangan'" class="hover:cursor-pointer"
+                        <button @click="tab = 'pembagianKeuangan'" class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
                             x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'pembagianKeuangan', 'font-normal': tab !== 'pembagianKeuangan'}">
                             Pembagian Keuangan
                         </button>
-                        <button @click="tab = 'perbandinganPengeluaran'" class="hover:cursor-pointer"
+                        <button @click="tab = 'perbandinganPengeluaran'" class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
                             x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'perbandinganPengeluaran', 'font-normal': tab !== 'perbandinganPengeluaran'}">
                             Perbandingan Pengeluaran
                         </button>
@@ -60,33 +64,33 @@
                     <!-- pembagian keuangan -->
                     <div class="flex flex-col lg:text-start" x-show="tab === 'pembagianKeuangan'">
                         <div class="flex flex-col w-full h-full items-center lg:items-start">
-                            <h4 class="font-normal text-center lg:text-start">Masukkan total anggaran bulananmu dan
+                            <h4 class="text-sm lg:text-base">Masukkan total anggaran bulananmu dan
                                 lihat pembagian ideal 50 : 30 :
                                 20! (input berupa Rupiah)</h4>
                             <div class="relative font-normal">
-                                <h1 class="absolute left-[7.9%] top-1/2 -translate-y-1/2">Rp</h1>
+                                <h1 class="absolute left-5 top-1/2 -translate-y-1/10">Rp</h1>
                                 <input type="number" min="1" step="any" id="inputPembagian"
-                                    class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-5 w-[90%] md:w-[65%] lg:w-[60%]">
+                                class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                             </div>
-                            <button id="submitHitung" class="btn-primary font-normal">Hitung Pembagian</button>
+                            <button id="submitHitung" class="btn-primary-hp mt-5 text-sm lg:text-base w-full lg:w-fit lg:btn-primary font-normal">Hitung Pembagian</button>
                         </div>
 
                         <!-- hasil pembagian ideal -->
                         <div id="containerOutputPembagianIdeal" class="hidden flex-col mt-14">
-                            <h1 class="text-center">Hasil Pembagian Ideal</h1>
+                            <h1 class="text-center text-xl font-semibold">Hasil Pembagian Ideal</h1>
 
                             <div class="flex flex-col mt-4 w-full">
                                 <div class="flex justify-between">
                                     <p>Kebutuhan Pokok:</p>
-                                    <p><span id="outputKebutuhanPokok"></span> IDR</p>
+                                    <p>Rp<span id="outputKebutuhanPokok"></span></p>
                                 </div>
                                 <div class="flex justify-between">
                                     <p>Keinginan:</p>
-                                    <p><span id="outputKeinginan"></span> IDR</p>
+                                    <p>Rp<span id="outputKeinginan"></span></p>
                                 </div>
                                 <div class="flex justify-between">
                                     <p>Tabungan/Investasi:</p>
-                                    <p><span id="outputTabunganInvestasi"></span> IDR</p>
+                                    <p>Rp<span id="outputTabunganInvestasi"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -97,12 +101,12 @@
                     <div class="flex flex-col lg:flex-row justify-between" x-show="tab === 'perbandinganPengeluaran'">
                         <!-- input -->
                         <div class="flex flex-col gap-5 w-full lg:w-[50%]"> 
-                            <div class="flex flex-col gap-[15px]">
+                            <div class="flex flex-col gap-2.5 mb-5 lg:gap-[15px]">
                                 <h1 class="font-bold-custom">Total Anggaran Bulanan</h1>
                                 <div class="relative font-normal">
-                                    <h1 class="absolute left-[5.5%] top-[50%] -translate-y-[50%]">Rp</h1>
+                                    <h1 class="absolute left-5 top-1/2 -translate-y-1/10">Rp</h1>
                                     <input type="number" min="1" step="any" id="inputTotalAnggaranBulanan"
-                                        class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-1 w-[90%] md:w-[65%] lg:w-full">
+                                        class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                                 </div>
                             </div>
                             <div class="flex flex-col gap-[15px]">
@@ -110,37 +114,37 @@
                                 <div class="flex flex-col">
                                     <h1 class="font-normal">Kebutuhan Pokok</h1>
                                     <div class="relative font-normal">
-                                        <h1 class="absolute left-[5.5%] top-[50%] -translate-y-[50%]">Rp</h1>
+                                        <h1 class="absolute left-5 top-1/2 -translate-y-1/10">Rp</h1>
                                         <input type="number" min="1" step="any" id="inputKebutuhanPokok"
-                                            class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-1 w-[90%] md:w-[65%] lg:w-full">
+                                            class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                                     </div>
                                 </div>
                                 <div class="flex flex-col">
                                     <h1 class="font-normal">Keinginan</h1>
                                     <div class="relative font-normal">
-                                        <h1 class="absolute left-[5.5%] top-[50%] -translate-y-[50%]">Rp</h1>
+                                        <h1 class="absolute left-5 top-1/2 -translate-y-1/10">Rp</h1>
                                         <input type="number" min="1" step="any" id="inputKeinginan"
-                                            class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-1 w-[90%] md:w-[65%] lg:w-full">
+                                            class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                                     </div>
                                 </div>
                                 <div class="flex flex-col">
                                     <h1 class="font-normal">Tabungan atau Investasi</h1>
                                     <div class="relative font-normal">
-                                        <h1 class="absolute left-[5.5%] top-[50%] -translate-y-[50%]">Rp</h1>
+                                        <h1 class="absolute left-5 top-1/2 -translate-y-1/10">Rp</h1>
                                         <input type="number" min="1" step="any" id="inputTabunganAtauInvestasi"
-                                            class="border-primary h-13 lg:h-15 border border-solid items-center py-5 pr-10 pl-15 rounded-[100px] mt-1 w-[90%] md:w-[65%] lg:w-full">
+                                            class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                                     </div>
                                 </div>
                             </div>
                             <div class="flex">
-                                <button id="submit" class="btn-primary">Analisis Perbandingan</button>
+                                <button id="submit" class="btn-primary-hp text-sm lg:text-base mt-5 sm:w-full lg:w-fit lg:btn-primary font-normal">Analisis Perbandingan</button>
                             </div>
                         </div>
                         <!-- chart 🐧 -->
                         <div class="flex flex-col w-full lg:w-[45%]">
-                            <canvas id="chartOutput" class="w-full h-full"></canvas>
+                            <canvas id="chartOutput" class="w-full max-h-70 lg:max-h-80 mt-10 lg:mt-5"></canvas>
                             <!-- Rekomendasi Aksi -->
-                            <div id="parentHasil" class="mt-25 hidden">
+                            <div id="parentHasil" class="mt-5 hidden">
                                 <h1 class="font-bold">Rekomendasi Aksi</h1>
                                 <span id="hasil" class="font-light"></span>
                             </div>
@@ -169,7 +173,10 @@
             // tabungan dan investasi 20%
             let tabunganDanInvestasi = input * 20 / 100;
 
-
+            // format Rupiah
+            kebutuhan = kebutuhan.toLocaleString('id-ID');
+            keinginan = keinginan.toLocaleString('id-ID');
+            tabunganDanInvestasi = tabunganDanInvestasi.toLocaleString('id-ID');
 
             $('#outputKebutuhanPokok').text(kebutuhan);
             $('#outputKeinginan').text(keinginan);
@@ -225,6 +232,7 @@
                     ]
                 },
                 options: {
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'bottom',
@@ -240,6 +248,7 @@
 
         generateChart([0, 0, 0], [0, 0, 0]);
 
+        // Perbandingan Pengeluaran
         $('#submit').on('click', function () {
             const existingChart = Chart.getChart("chartOutput");
             if (existingChart) existingChart.destroy();
@@ -247,6 +256,12 @@
             const dataKebutuhanPokok = $('#inputKebutuhanPokok').val();
             const dataKeinginan = $('#inputKeinginan').val();
             const dataTabunganAtauInvestasi = $('#inputTabunganAtauInvestasi').val();
+
+            if ((dataKebutuhanPokok == 0 || isNaN(dataKebutuhanPokok)) && (dataKeinginan == 0 || isNaN(dataKeinginan)) && (dataTabunganAtauInvestasi == 0 || isNaN(dataTabunganAtauInvestasi))) {
+                alert('Harap diisi terlebih dahulu dan jangan ada karakter yang selain angka');
+                generateChart([0, 0, 0], [0, 0, 0]);
+                return;
+            }
 
             const dataInput = [dataKebutuhanPokok, dataKeinginan, dataTabunganAtauInvestasi];
             
@@ -271,23 +286,23 @@
                 keinginan: dataFromSystemKeinginan,
                 tabungan: dataFromSystemTabunganAtauInvestasi
             };
-            let hasil = [];
+            let hasil = ['<ul class="list-disc ml-5 leading-[180%]">'];
 
             // cek jika pengeluaran melebihi total
             if (totalDataReal > total) {
-                hasil.push(`Total pengeluaran Anda (Rp${totalDataReal.toLocaleString()}) yang melebihi anggaran bulanan (Rp${total.toLocaleString()}).`);
-                hasil.push(`Coba kurangi beberapa jenis pengeluaran agar tidak defisit (Jumlah yang rugi jika dibandingkan dengan total anggaran).`);
+                hasil.push(`<li>Total pengeluaran Anda (Rp${totalDataReal.toLocaleString()}) yang melebihi anggaran bulanan (Rp${total.toLocaleString()}).</li>`);
+                hasil.push(`<li>Coba kurangi beberapa jenis pengeluaran agar tidak defisit (Jumlah yang rugi jika dibandingkan dengan total anggaran).</li>`);
             }
 
             // fungsi pembanding otomatis
             function cekSelisih(nama, realVal, idealVal) {
                 const selisih = realVal - idealVal;
                 if (Math.abs(selisih) < total * 0.05) {
-                    hasil.push(`${nama} Anda sudah ideal.`);
+                    hasil.push(`<li><strong>${nama}</strong> Anda sudah ideal.</li>`);
                 } else if (selisih > 0) {
-                    hasil.push(`${nama} melebihi batas ideal sebesar Rp${selisih.toLocaleString()}.`);
+                    hasil.push(`<li><strong>${nama}</strong> melebihi batas ideal sebesar Rp${selisih.toLocaleString()}. Coba dikurangi sedikit.</li>`);
                 } else {
-                    hasil.push(`${nama} masih di bawah ideal sebesar Rp${Math.abs(selisih).toLocaleString()}, bisa ditambah sedikit.`);
+                    hasil.push(`<li><strong>${nama}</strong> masih di bawah ideal sebesar Rp${Math.abs(selisih).toLocaleString()}, bisa ditambah sedikit.</li>`);
                 }
             };
 
@@ -298,11 +313,11 @@
 
             const semuaIdeal = Object.keys(real).every(k => Math.abs(real[k] - ideal[k]) < total * 0.05);
             if (semuaIdeal && totalDataReal <= total) {
-                hasil.unshift("🎯 Semua pengeluaran sudah ideal, pertahankan!");
+                hasil.unshift("<p>🎯 Semua pengeluaran sudah ideal, pertahankan!</p>");
             }
 
             $('#parentHasil').removeClass('hidden').addClass('block')
-            $('#hasil').html(hasil.join('<br>'));
+            $('#hasil').html(hasil.join('') + '</ul>');
         })
     </script>
 </body>

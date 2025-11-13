@@ -40,7 +40,11 @@ p {
 }
 
 .btn-primary {
-  @apply bg-primary text-white px-15 py-4 flex items-center content-center border border-primary rounded-full w-fit mt-6 hover:bg-transparent hover:text-primary hover:border hover:border-primary transition-all duration-300 cursor-pointer ease-in-out;
+  @apply bg-primary text-white px-15 py-4 flex items-center content-center border border-primary rounded-full mt-6 hover:bg-transparent hover:text-primary hover:border hover:border-primary transition-all duration-300 cursor-pointer ease-in-out;
+}
+
+.btn-primary-hp {
+  @apply bg-primary text-white px-10 py-3 flex items-center justify-center border border-primary rounded-full hover:bg-transparent hover:text-primary hover:border hover:border-primary transition-all duration-300 cursor-pointer ease-in-out;
 }
 
 .btn-primary-alternate {
