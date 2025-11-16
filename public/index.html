@@ -25,6 +25,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Swiper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 
 <body class="font-default font-light text-primary bg-secondary w-full overflow-x-hidden">
@@ -44,7 +46,9 @@
                     di AturUang!</h2>
                 <p class="font-light text-[18px]" data-aos="fade-right" data-aos-delay="100">Sulit Manajemen
                     Keuangan?<br>Temukan Solusimu di AturUang.</p>
-                <a href="#get-started" class="btn-primary-hp mt-5 text-sm lg:text-base w-full lg:w-fit lg:btn-primary font-normal" data-aos="fade-right" data-aos-delay="200">
+                <a href="#get-started"
+                    class="btn-primary-hp mt-5 text-sm lg:text-base w-full lg:w-fit lg:btn-primary font-normal"
+                    data-aos="fade-right" data-aos-delay="200">
                     <p>Mulai Sekarang</p>
                 </a>
             </div>
@@ -58,7 +62,8 @@
                 <img src="/img/financial.jpg" alt="Financial Illustration">
             </a>
             <div class="px-8 py-10 lg:max-w-[40%] scroll-mt-80" id="get-started">
-                <h1 class="text-3xl lg:text-4xl mb-4 font-normal" data-aos="fade-left">Atur Finansial Anda<br>dengan AturUang</h1>
+                <h1 class="text-3xl lg:text-4xl mb-4 font-normal" data-aos="fade-left">Atur Finansial Anda<br>dengan
+                    AturUang</h1>
                 <p data-aos="fade-left" data-aos-delay="100">Menyediakan fitur yang dapat membantu generasi muda yang
                     sedang menghadapi permasalahan keuangan dan
                     finansial.</p>
@@ -67,7 +72,8 @@
         <!-- Promosi Section end 🐧-->
 
         <!-- Keunggulan section 🐧-->
-        <section class="keunggulan-container flex flex-col gap-16 justify-center items-center px-5 py-20 lg:py-20 box-border"
+        <section
+            class="keunggulan-container flex flex-col gap-16 justify-center items-center px-5 py-20 lg:py-20 box-border"
             id="keunggulan">
             <h1 class="text-primary text-center font-default text-[40px] font-semibold" data-aos="fade-up">AturUang
                 Untuk Generasi Muda
@@ -126,7 +132,46 @@
                 </a>
             </div>
         </section>
-        <!-- Keunggulan section 🐧-->
+        <!-- Keunggulan section end🐧-->
+
+        <section class="flex flex-col gap-6">
+            <div class="flex justify-center mt-20 mb-10">
+                <div class="title text-primary text-center w-[80%] xl:w-[55%]">
+                    <h1 class="font-bold text-2xl xl:text-4xl">Ratusan ribu pelajar udah mulai atur uangnya, giliran
+                        kamu?</h1>
+                </div>
+            </div>
+            <div class="flex justify-between relative px-7">
+                <div class="flex items-center w-20">
+                    <svg id="prev-btn" xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-left-icon hover:cursor-pointer text-primary lucide-chevron-left">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </div>
+                <!-- Testimoni section -->
+                <div class="swiper flex h-[30dvh] w-full">
+                    <!-- Additional required wrapper -->
+                    <div id="card-container" class="swiper-wrapper w-2">
+                        <!-- Slides -->
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+
+                </div>
+                <div class="flex items-center w-20">
+                    <svg id="next-btn" xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-right-icon hover:cursor-pointer text-primary lucide-chevron-right">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <div id="footer"></div>
@@ -138,7 +183,6 @@
         AOS.init({
             duration: 800,
         });
-
         document.addEventListener('aos:in', ({ detail }) => {
             setTimeout(() => {
                 detail.removeAttribute('data-aos');
@@ -147,6 +191,56 @@
             }, 900);
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        $.getJSON('/testimoni.json', function (data) {
+            data.forEach(item => {
+                const cardContent = `
+                    <div class="swiper-slide font-default bg-white rounded-xl pt-5 shadow-lg !h-[99%]">
+                        <div class="flex flex-col px-5 h-[100%]">
+                            <div class="flex w-full justify-between">
+                                <div class="flex flex-col w-[70%]">
+                                    <h1 class="font-bold text-[100%]">${item.name}</h1>
+                                    <h3 class="font-medium text-[100%]">${item.role}, umur ${item.age}</h3>
+                                </div>
+                                <div class="flex items-center justify-center w-[20%] h-full lg:h-auto xl:top-2 xl:absolute xl:right-5">
+                                    <img src="${item.profile}" class="w-20" alt="">
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center h-[100%] w-[100%]">
+                                <p class="text-md 3xl:text-xl 4xl:text-2xl">${item.text}</p>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                $("#card-container").append(cardContent);
+            });
+            const swiper = new Swiper('.swiper', {
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    },
+                    1280: {
+                        slidesPerView: 4
+                    }
+                },
+                spaceBetween: 20,
+                slidesPerGroup: 1,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                navigation: {
+                    nextEl: '#next-btn',
+                    prevEl: '#prev-btn',
+                },
+            });
+        })
+    </script>
+
 </body>
 
 </html>
