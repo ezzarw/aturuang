@@ -35,6 +35,6 @@ npm run dev
 ```
 5. Jalankan server dengan npx atau dengan extension Live Server
 ```bash
-npx serve
+npx serve public
 ```
 6. Selamat ngoding :)

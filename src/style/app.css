@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1E3A8A;
-  --color-secondary: #F3F4F6;
+  --color-primary: #1e3a8a;
+  --color-secondary: #f3f4f6;
   --font-default: "Alexandria", "Arial", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
 }
 
 * {

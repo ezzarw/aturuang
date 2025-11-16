@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Aliezzar Wijaya",
+    "age": 16,
+    "role": "Student",
+    "text": "Keren banget! bisa bantu ngecek bagaimana seharusnya kita memanage keuangan kita, apalagi kalau punya mimpi besar buat membeli suatu barang yang diinginkan",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Siti Rahayu",
+    "age": 17,
+    "role": "Part-time Baker",
+    "text": "Dari jualan kue di sekolah, aku belajar nabung tiap hari. Sekarang pengin beli oven sendiri, tapi harus hitung-hitung dulu biar gak overbudget.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Dimas Pratama",
+    "age": 18,
+    "role": "Street Vendor Helper",
+    "text": "Bantu bapak jualan gorengan sore-sore. Uangnya mau dikit-dikit buat beli motor biar gak capek naik angkot.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Lina Marlina",
+    "age": 16,
+    "role": "Online Reseller",
+    "text": "Jualan aksesoris murah lewat medsos. Tapi sering kalap belanja stok. Sekarang butuh bantuan biar bisa pisah mana buat modal, mana buat ditabung.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Andre Saputra",
+    "age": 17,
+    "role": "Freelance Photographer",
+    "text": "Ambil foto acara sekolah pakai HP. Hasilnya mau aku tabung buat beli kamera asli, tapi harus tau berapa yang boleh dipake buat jajan.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Nisa Hanifah",
+    "age": 16,
+    "role": "Tutor SD",
+    "text": "Ngajarin adik tetangga tiap minggu malem. Gajinya kecil, tapi kalau diatur bisa cukup buat beli baju impian atau kuota kuliah nanti.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Raka Ferdiansyah",
+    "age": 18,
+    "role": "Delivery Rider",
+    "text": "Bawa makanan pakai sepeda. Pengin beli helm bagus dan jaket anti hujan, tapi harus prioritasin kebutuhan dulu.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Maya Putri",
+    "age": 17,
+    "role": "Beauty Enthusiast",
+    "text": "Suka koleksi skincare murah. Sering tergoda beli ini-itu. Sekarang butuh bantuan biar bisa hemat dan tetap cantik tanpa boncos.",
+    "profile": "/img/profile.png"
+  },
+  {
+    "name": "Fajar Nugroho",
+    "age": 16,
+    "role": "Comic Illustrator",
+    "text": "Gambar komik digital di HP, upload ke medsos. Impian mau beli tablet gambar, tapi harus sabar dan atur uang jajan tiap bulan.",
+    "profile": "/img/profile.png"
+  }
+]
