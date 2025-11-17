@@ -79,5 +79,5 @@ p {
 }
 
 .tab-hidden {
-  @apply opacity-0 pointer-events-none h-0;
+  @apply opacity-0 pointer-events-none absolute top-0;
 }

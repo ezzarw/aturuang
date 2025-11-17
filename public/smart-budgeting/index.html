@@ -42,12 +42,15 @@
                         class="text-primary text-center mb-5 lg:text-start text-4xl lg:text-[2.5rem] font-default font-semibold">
                         Smart Budgeting</h1>
                     <!-- tab -->
-                    <div class="flex space-x-4 w-full items-center lg:justify-start relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:opacity-20 before:w-full before:h-px">
-                        <button @click="tab = 'pembagianKeuangan'" class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
+                    <div
+                        class="flex space-x-4 w-full items-center lg:justify-start relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:opacity-20 before:w-full before:h-px">
+                        <button @click="tab = 'pembagianKeuangan'"
+                            class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
                             x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'pembagianKeuangan', 'font-normal': tab !== 'pembagianKeuangan'}">
                             Pembagian Keuangan
                         </button>
-                        <button @click="tab = 'perbandinganPengeluaran'" class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
+                        <button @click="tab = 'perbandinganPengeluaran'"
+                            class="text-sm lg:text-base hover:cursor-pointer hover:relative hover:before:absolute hover:before:-bottom-3 hover:before:left-0 hover:before:bg-primary hover:before:opacity-50 hover:before:w-full hover:before:h-px"
                             x-bind:class="{'font-semibold relative before:absolute before:-bottom-3 before:left-0 before:bg-primary before:w-full before:h-px': tab == 'perbandinganPengeluaran', 'font-normal': tab !== 'perbandinganPengeluaran'}">
                             Perbandingan Pengeluaran
                         </button>
@@ -66,10 +69,12 @@
                                 <!-- <input type="number" min="1" step="any" id="inputPembagian"
                                 class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none"> -->
                                 <input type="text" min="1" step="any" id="inputPembagian"
-                                class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
+                                    class="border-primary border border-solid items-center py-3 pr-10 pl-11 rounded-[100px] mt-5 w-full outline-none">
                                 <input type="hidden" id="realInputPembagian">
                             </div>
-                            <button id="submitHitung" class="btn-primary-hp mt-5 text-sm lg:text-base w-full lg:w-fit lg:btn-primary font-normal">Hitung Pembagian</button>
+                            <button id="submitHitung"
+                                class="btn-primary-hp mt-5 text-sm lg:text-base w-full lg:w-fit lg:btn-primary font-normal">Hitung
+                                Pembagian</button>
                         </div>
 
                         <!-- hasil pembagian ideal -->
@@ -97,7 +102,7 @@
                     <!-- perbandingan pengeluaran -->
                     <div class="flex flex-col justify-between" x-show="tab === 'perbandinganPengeluaran'">
                         <!-- input -->
-                        <div class="flex flex-col gap-5 w-full"> 
+                        <div class="flex flex-col gap-5 w-full">
                             <div class="flex flex-col gap-2.5 mb-5 lg:gap-[15px]">
                                 <h1 class="font-bold-custom">Total Anggaran Bulanan</h1>
                                 <div class="relative font-normal">
@@ -137,7 +142,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="submit" class="btn-primary-hp text-sm lg:text-base mt-5 sm:w-full lg:w-fit lg:btn-primary font-normal">Analisis Perbandingan</button>
+                            <button id="submit"
+                                class="btn-primary-hp text-sm lg:text-base mt-5 sm:w-full lg:w-fit lg:btn-primary font-normal">Analisis
+                                Perbandingan</button>
                         </div>
                         <!-- chart 🐧 -->
                         <div class="flex flex-col w-full">
@@ -159,7 +166,7 @@
 
     <script>
         // format input rupiah dengan jquery
-        $(document).ready(function() {
+        $(document).ready(function () {
             let $priceInput = $('#inputPembagian');
             let $hiddenPrice = $('#realInputPembagian');
 
@@ -174,17 +181,17 @@
                 return angka.replace(/\./g, '');
             }
 
-            $('.input-perbandingan').each(function() {
+            $('.input-perbandingan').each(function () {
                 let $priceInput = $(this);
                 let $hiddenPrice = $(this).next('input[type="hidden"]');
 
-                $priceInput.on('keyup', function() {
+                $priceInput.on('keyup', function () {
                     var rawValue = $(this).val();
                     var cleanedValue = cleanNumber(rawValue);
 
                     // Pastikan input adalah angka (atau string kosong)
                     if (cleanedValue === '') {
-                        $hiddenPrice.val(''); 
+                        $hiddenPrice.val('');
                         $(this).val('');
                         return;
                     }
@@ -196,13 +203,13 @@
             });
 
             // Event listener saat pengguna mengetik di priceInput
-            $priceInput.on('keyup', function() {
+            $priceInput.on('keyup', function () {
                 var rawValue = $(this).val();
                 var cleanedValue = cleanNumber(rawValue);
 
                 // Pastikan input adalah angka (atau string kosong)
                 if (cleanedValue === '') {
-                    $hiddenPrice.val(''); 
+                    $hiddenPrice.val('');
                     $(this).val('');
                     return;
                 }
@@ -215,7 +222,7 @@
 
         function perhitunganPembagianKeuangan() {
             let input = $('#realInputPembagian').val();
-            
+
             if (input == 0 || isNaN(input)) {
                 alert('Harap diisi terlebih dahulu dan jangan ada karakter yang selain angka');
                 return;
@@ -303,7 +310,7 @@
         // generateChart([0, 0, 0], [0, 0, 0]);
 
         // Perbandingan Pengeluaran
-        $('#submit').on('click', function () {
+        function perbandinganPengeluaran() {
             const existingChart = Chart.getChart("chartOutput");
             if (existingChart) existingChart.destroy();
             // Sebagai data asli input
@@ -318,7 +325,7 @@
             }
 
             const dataInput = [dataKebutuhanPokok, dataKeinginan, dataTabunganAtauInvestasi];
-            
+
             // sebagai data asli dari sistem
             const total = $('#realInputTotalAnggaranBulanan').val();
             const dataFromSystemKebutuhanPokok = total * 50 / 100;
@@ -326,8 +333,8 @@
             const dataFromSystemTabunganAtauInvestasi = total * 20 / 100;
             const dataFromSystem = [dataFromSystemKebutuhanPokok, dataFromSystemKeinginan, dataFromSystemTabunganAtauInvestasi];
             generateChart(dataInput, dataFromSystem);
-            
-            
+
+
             const real = {
                 kebutuhan: parseInt(dataKebutuhanPokok),
                 keinginan: parseInt(dataKeinginan),
@@ -373,6 +380,27 @@
             $('#chartOutput').removeClass('hidden').addClass('block');
             $('#parentHasil').removeClass('hidden').addClass('block')
             $('#hasil').html(hasil.join('') + '</ul>');
+        }
+
+        $(window).on('keypress', function (e) {
+            if (e.which == 13) {
+                const existingChart = Chart.getChart("chartOutput");
+                if (existingChart) existingChart.destroy();
+                // Sebagai data asli input
+                const dataKebutuhanPokok = $('#realInputKebutuhanPokok').val();
+                const dataKeinginan = $('#realInputKeinginan').val();
+                const dataTabunganAtauInvestasi = $('#realInputTabunganAtauInvestasi').val();
+                if ((dataKebutuhanPokok == 0 || isNaN(dataKebutuhanPokok)) && (dataKeinginan == 0 || isNaN(dataKeinginan)) && (dataTabunganAtauInvestasi == 0 || isNaN(dataTabunganAtauInvestasi))) {
+                    alert('Harap diisi terlebih dahulu dan jangan ada karakter yang selain angka');
+                    //generateChart([0, 0, 0], [0, 0, 0]);
+                    return;
+                }
+                return perbandinganPengeluaran();
+            }
+        });
+
+        $('#submit').on('click', function () {
+            return perbandinganPengeluaran();
         })
     </script>
 </body>
